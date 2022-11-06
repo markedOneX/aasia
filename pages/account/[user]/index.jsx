@@ -4,7 +4,9 @@ import { useSelector } from "react-redux";
 
 export default function user() {
   //Declarations
+  //UseSelector hook to get the states from redux store
   const { token, username } = useSelector((e) => e.variantOne);
+  //
   const router = useRouter();
 
   //Functions

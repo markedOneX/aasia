@@ -3,8 +3,10 @@ import { sampleData } from "./datafile";
 
 export default function VariantTwo() {
   //Declarations
+  //Used States to store the values of teams and employees
   const [Team, setTeam] = useState();
   const [Employees, setEmployees] = useState([]);
+  //Used useRef hook to get the referance of a value from the input box
   const EmployeeRef = useRef();
 
   //Functions
@@ -39,6 +41,22 @@ export default function VariantTwo() {
     }
   };
 
+  const handleEntry = (e) => {
+    e.preventDefault();
+    let inputName = EmployeeRef.current.value;
+
+    if (Team) {
+      if (inputName) {
+        setEmployees([...Employees, inputName]);
+        alert("Entry Successful!");
+        EmployeeRef.current.value = "";
+      } else {
+        alert("Please Enter Name");
+      }
+    } else {
+      alert("Please Select Team");
+    }
+  };
   //Renders
   return (
     <div className="containerClass">
@@ -54,6 +72,9 @@ export default function VariantTwo() {
               </option>
             ))}
           </select>
+
+          {/* Employee box won't show if team is not selected */}
+          {/* In order to implement the filter/auto-complete functionality, i used <datalist> tag that comes with HTML integrated it with the logic */}
           {Employees.length !== 0 && (
             <>
               <select>
@@ -70,33 +91,15 @@ export default function VariantTwo() {
               </datalist>
             </>
           )}
-          <form onSubmit={(e) => e.preventDefault()} className="formClass">
+
+          <form onSubmit={handleEntry} className="formClass">
             <input
               type="text"
               placeholder="Add Employee"
               ref={EmployeeRef}
               list="employeeDataList"
             />
-            <button
-              className="btnClass"
-              onClick={() => {
-                let inputName = EmployeeRef.current.value;
-
-                if (Team) {
-                  if (inputName) {
-                    setEmployees([...Employees, inputName]);
-                    alert("Entry Successful!");
-                    EmployeeRef.current.value = "";
-                  } else {
-                    alert("Please Enter Name");
-                  }
-                } else {
-                  alert("Please Select Team");
-                }
-              }}
-            >
-              Add Employee
-            </button>
+            <button className="btnClass">Add Employee</button>
           </form>
         </div>
       </section>

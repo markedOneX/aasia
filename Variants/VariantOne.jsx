@@ -4,12 +4,17 @@ import { useDispatch } from "react-redux";
 import { tokenValue } from "../features/variantSlice";
 
 export default function VariantOne() {
+  //Declarations
+  //Used states to store the values of username and password.
   const [userName, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  //useDispatch hook to dispatch an action
   const dispatch = useDispatch();
+  //UseRouter hook to do routing operations
   const router = useRouter();
 
-  const getAccessToken = (e) => {
+  //Generating random token
+  const getAccessToken = () => {
     return Math.floor(Math.random() * 999999999999);
   };
 
@@ -24,7 +29,7 @@ export default function VariantOne() {
           token: token,
         })
       );
-      router.push(`/account/${userName}?token=${token}`);
+      router.push(`/account/${userName}`);
     } else {
       alert("Login First");
     }
