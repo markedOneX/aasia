@@ -38,6 +38,10 @@ export default function VariantOne() {
   if (router)
     return (
       <div className="containerClass">
+        <h4>
+          If you add add random data after 'account/', app will show token
+          validation error
+        </h4>
         <form onSubmit={handleSubmit} className="dropdownClasses">
           <input
             type="text"
