@@ -37,26 +37,28 @@ export default function VariantOne() {
 
   if (router)
     return (
-      <div className="containerClass">
+      <>
         <h4>
-          If you add add random data after 'account/', app will show token
-          validation error
+          If you add add random data after '/account/', app will show token
+          validation error. Login to continue.
         </h4>
-        <form onSubmit={handleSubmit} className="dropdownClasses">
-          <input
-            type="text"
-            placeholder="Username"
-            value={userName}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button className="btnClass">Login</button>
-        </form>
-      </div>
+        <div className="containerClass">
+          <form onSubmit={handleSubmit} className="dropdownClasses">
+            <input
+              type="text"
+              placeholder="Username"
+              value={userName}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button className="btnClass">Login</button>
+          </form>
+        </div>
+      </>
     );
 }
