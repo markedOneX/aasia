@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { tokenValue } from "../features/variantSlice";
+import { tokenValue } from "../features/VariantSlice";
 
 export default function VariantOne() {
   //Declarations
