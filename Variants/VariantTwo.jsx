@@ -74,7 +74,7 @@ export default function VariantTwo() {
           </select>
 
           {/* Employee box won't show if team is not selected */}
-          {/* In order to implement the filter/auto-complete functionality, i used <datalist> tag that comes with HTML integrated it with the logic */}
+          {/* In order to implement the filter/auto-complete functionality and keep it minimal and not use any plugin, i used <datalist> tag that comes with HTML integrated it with the logic */}
           {Employees.length !== 0 && (
             <>
               <select>
